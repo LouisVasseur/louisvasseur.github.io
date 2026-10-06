@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="312" viewBox="0 0 440 312" role="img" aria-labelledby="world-title world-desc">
+  <title id="world-title">Common image translation and local stretching</title>
+  <desc id="world-desc">Conceptual diagram of two tracked points before and after motion. A common two-dimensional image translation moves both points by the same offset and preserves their distance. In the second example, local stretching moves the points apart and increases their distance. No measured project data are shown.</desc>
+  <defs>
+    <marker id="world-arrow" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M1 1 L6 4 L1 7" fill="none" stroke="#688983" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#292d30">
+    <path d="M0 148 H440" fill="none" stroke="#e2e5e5"/>
+    <text x="16" y="25" font-size="22" font-weight="700">Common image shift</text>
+    <text x="16" y="69" font-size="22" fill="#62696d">Before</text>
+    <text x="16" y="115" font-size="22" fill="#62696d">After</text>
+    <path d="M135 64 H225" fill="none" stroke="#a6adaf" stroke-width="1.5"/>
+    <text x="180" y="54" text-anchor="middle" font-size="22" font-style="italic" fill="#62696d">d</text>
+    <circle cx="135" cy="64" r="5.5" fill="#fff" stroke="#6d777b" stroke-width="1.8"/>
+    <circle cx="225" cy="64" r="5.5" fill="#fff" stroke="#6d777b" stroke-width="1.8"/>
+    <path d="M141 71 L168 102 M231 71 L258 102" fill="none" stroke="#688983" stroke-width="1.7" marker-end="url(#world-arrow)"/>
+    <path d="M175 110 H265" fill="none" stroke="#688983" stroke-width="1.7"/>
+    <circle cx="175" cy="110" r="5.5" fill="#426f67"/>
+    <circle cx="265" cy="110" r="5.5" fill="#426f67"/>
+    <text x="220" y="136" text-anchor="middle" font-size="22" font-style="italic" fill="#426f67">d′</text>
+    <text x="319" y="93" font-size="22">d′ = d</text>
+
+    <text x="16" y="184" font-size="22" font-weight="700">Local stretching</text>
+    <text x="16" y="228" font-size="22" fill="#62696d">Before</text>
+    <text x="16" y="274" font-size="22" fill="#62696d">After</text>
+    <path d="M135 223 H225" fill="none" stroke="#a6adaf" stroke-width="1.5"/>
+    <text x="180" y="213" text-anchor="middle" font-size="22" font-style="italic" fill="#62696d">d</text>
+    <circle cx="135" cy="223" r="5.5" fill="#fff" stroke="#6d777b" stroke-width="1.8"/>
+    <circle cx="225" cy="223" r="5.5" fill="#fff" stroke="#6d777b" stroke-width="1.8"/>
+    <path d="M132 231 L118 261 M228 231 L242 261" fill="none" stroke="#688983" stroke-width="1.7" marker-end="url(#world-arrow)"/>
+    <path d="M115 269 H245" fill="none" stroke="#688983" stroke-width="1.7"/>
+    <circle cx="115" cy="269" r="5.5" fill="#426f67"/>
+    <circle cx="245" cy="269" r="5.5" fill="#426f67"/>
+    <text x="180" y="295" text-anchor="middle" font-size="22" font-style="italic" fill="#426f67">d′</text>
+    <text x="319" y="252" font-size="22">d′ &gt; d</text>
+  </g>
+</svg>

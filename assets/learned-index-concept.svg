@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="288" viewBox="0 0 440 288" role="img" aria-labelledby="index-title index-desc">
+  <title id="index-title">A learned position estimate followed by exact search</title>
+  <desc id="index-desc">Conceptual lookup in illustrative sorted letter keys a through i. A learned model receives query f and estimates a position near e. An exact search over a nearby interval finds f. The example assumes the search interval includes the correct key; it is not a measured prediction or error bound.</desc>
+  <defs>
+    <marker id="index-arrow" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M1 1 L6 4 L1 7" fill="none" stroke="#687c91" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#292d30">
+    <text x="16" y="25" font-size="22" font-weight="700">1. Estimate a position</text>
+    <rect x="16" y="46" width="96" height="42" rx="3" fill="#fff" stroke="#b8bec2"/>
+    <text x="64" y="73" text-anchor="middle" font-size="22">query <tspan font-weight="700">f</tspan></text>
+    <path d="M120 67 H142" fill="none" stroke="#687c91" stroke-width="1.7" marker-end="url(#index-arrow)"/>
+    <rect x="152" y="46" width="158" height="42" rx="3" fill="#f2f4f6" stroke="#b8c2cb"/>
+    <text x="231" y="73" text-anchor="middle" font-size="22">learned model</text>
+    <path d="M231 96 V112 Q231 120 223 120 H220 V153" fill="none" stroke="#687c91" stroke-width="1.7" marker-end="url(#index-arrow)"/>
+    <text x="249" y="123" font-size="22" fill="#62696d">estimate</text>
+
+    <text x="16" y="142" font-size="22" fill="#62696d">Sorted keys</text>
+    <rect x="147" y="156" width="189" height="64" rx="4" fill="#edf1f5"/>
+    <g stroke="#c8cdd0" stroke-width="1" fill="#fff">
+      <rect x="16" y="167" width="40" height="42"/>
+      <rect x="62" y="167" width="40" height="42"/>
+      <rect x="108" y="167" width="40" height="42"/>
+      <rect x="154" y="167" width="40" height="42"/>
+      <rect x="200" y="167" width="40" height="42"/>
+      <rect x="246" y="167" width="40" height="42" fill="#526e89" stroke="#526e89"/>
+      <rect x="292" y="167" width="40" height="42"/>
+      <rect x="338" y="167" width="40" height="42"/>
+      <rect x="384" y="167" width="40" height="42"/>
+    </g>
+    <g font-size="22" text-anchor="middle">
+      <text x="36" y="194">a</text><text x="82" y="194">b</text>
+      <text x="128" y="194">c</text><text x="174" y="194">d</text>
+      <text x="220" y="194">e</text><text x="266" y="194" fill="#fff" font-weight="700">f</text>
+      <text x="312" y="194">g</text><text x="358" y="194">h</text>
+      <text x="404" y="194">i</text>
+    </g>
+    <path d="M154 226 V234 H332 V226" fill="none" stroke="#687c91" stroke-width="1.5"/>
+    <text x="16" y="272" font-size="22" font-weight="700">2. Search nearby keys exactly</text>
+  </g>
+</svg>
