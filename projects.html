@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Research and engineering projects by Louis James Vasseur: molecular structure, EEG, surgical world models, learned indexes and scientific generation.">
+  <meta name="author" content="Louis James Vasseur">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Projects · Louis James Vasseur">
+  <meta property="og:description" content="Research and engineering projects by Louis James Vasseur: molecular structure, EEG, surgical world models, learned indexes and scientific generation.">
+  <title>Projects · Louis James Vasseur</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='3' fill='%23232323'/%3E%3Ctext x='8' y='24' font-family='Arial' font-size='24' fill='white'%3EL%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css?v=36277647c4">
+</head>
+<body class="page-projects">
+  <a class="skip" href="#content">Skip to content</a>
+  <div class="site">
+    <header class="site-header">
+      <a class="name" href="index.html"><span class="brand-name">Louis James<br>Vasseur</span><span class="affiliation">EPFL</span></a>
+      <nav aria-label="Main navigation"><a href="index.html">About</a><a href="projects.html" aria-current="page">Projects</a><a href="publications.html">Publications</a><a href="LouisJamesVasseurCV.pdf">CV</a></nav>
+      <div class="rail-contact"><a href="mailto:louis.vasseur@epfl.ch">Email</a><a href="https://www.linkedin.com/in/louis-james-vasseur-9b9a8928a/">LinkedIn</a></div>
+    </header>
+    <main id="content" tabindex="-1">
+      <div class="page-heading">
+        <h1>Projects</h1>
+        <p class="page-intro">Research and engineering work at EPFL, in partner labs and with the EPFL AI Team.</p>
+      </div>
+      <div class="project-directory">
+        <p class="directory-label">On this page</p>
+        <nav class="project-index" aria-label="Projects on this page">
+        <a href="#tag-x"><span aria-hidden="true">01</span>Molecules</a><a href="#brain"><span aria-hidden="true">02</span>EEG</a><a href="#world"><span aria-hidden="true">03</span>World models</a><a href="#learned-indexes"><span aria-hidden="true">04</span>Learned indexes</a><a href="#gesture"><span aria-hidden="true">05</span>Sign language</a><a href="#dark-matter"><span aria-hidden="true">06</span>Astrophysics</a><a href="#other-work"><span aria-hidden="true">07</span>Other work</a>
+        </nav>
+      </div>
+
+      <article class="project project-featured project-molecules" id="tag-x" aria-labelledby="tag-x-title">
+        <header class="project-heading">
+          <span class="entry-number" aria-hidden="true">01</span>
+          <p class="project-field">Molecular structure</p>
+          <h2 id="tag-x-title">TAG-X</h2>
+          <p class="project-subtitle">Recovering molecular structure from complementary measurements</p>
+          <p class="role"><span>First author · STRUCTURE project &amp; research internship, EPFL LIAC</span><span class="date">2026</span></p>
+        </header>
+        <div class="project-layout">
+          <div class="prose">
+            <p>A molecular formula tells us which atoms are present, but leaves open how they are connected. Spectra supply different clues: an atom’s surroundings, functional groups, fragments, or relationships between hydrogen and carbon atoms. TAG-X learns to combine these measurements to reconstruct the molecule.</p>
+            <p>I proposed STRUCTURE within the AI Team, then continued the work during a research internship in LIAC. Our first team-built encoder could match spectra to candidate molecules. Moving from recognition to reconstruction exposed a harder question: <strong>does the representation preserve enough detail to build the structure?</strong> A representation can distinguish candidates while losing the local relationships a generator needs to recover individual bonds.</p>
+            <p>I rebuilt the spectral representation to retain local chemical information and relationships across measurements, and developed the interface through which the structure generator reads it. I also incorporated the supplied formula into decoding, allowing the search to reject choices that exceed the available atoms. This brought representation learning, generation and chemical constraints into the same system.</p>
+            <div class="research-result">
+              <p class="result">On <strong>39,224 test molecules</strong>, the correct structure was the decoder’s first candidate in <strong>77.9%</strong> of cases and appeared among its ten highest-ranked candidates in <strong>93.7%</strong>.</p>
+            <p class="scope">These results use simulated spectra and a supplied molecular formula, and evaluate atom connectivity rather than stereochemistry. Experimental spectra remain a further test.</p>
+            </div>
+          </div>
+          <aside class="project-aside">
+            <figure class="molecule-figure">
+              <div class="molecule-pair">
+                <div><img src="assets/anisole.svg" alt="Anisole: a benzene ring bonded to oxygen, which is bonded to a methyl group." width="480" height="320" loading="lazy"><span>Anisole</span></div>
+                <div><img src="assets/p-cresol.svg" alt="p-Cresol: a benzene ring with a hydroxyl group and a methyl group in opposite positions." width="480" height="320" loading="lazy"><span>p-Cresol</span></div>
+                <p>One formula: C<sub>7</sub>H<sub>8</sub>O</p>
+              </div>
+              <figcaption>The same atoms can form different molecules. Spectral measurements help resolve how they are connected. <span>Illustrative structures, not model predictions.</span></figcaption>
+            </figure>
+          </aside>
+        </div>
+      </article>
+
+      <article class="project project-featured project-neural" id="brain" aria-labelledby="brain-title">
+        <header class="project-heading">
+          <span class="entry-number" aria-hidden="true">02</span>
+          <p class="project-field">Neural interfaces</p>
+          <h2 id="brain-title">BRAIN</h2>
+          <p class="project-subtitle">Connecting models of perception to a live EEG system</p>
+          <p class="role"><span>Project Lead · EPFL AI Team, with EPFL NeuroAI Lab</span><span class="date">2026–present</span></p>
+        </header>
+        <div class="project-layout">
+          <div class="prose">
+            <p>BRAIN asks whether models trained on existing EEG recordings can become a responsive interface for a new person. EEG measures electrical activity at the scalp: weak, mixed signals whose relationship to what someone sees or hears varies across people. A useful system needs reliable acquisition, correctly timed stimuli and a way to adapt from limited recordings.</p>
+            <p>I lead the project and work across auditory and multimodal experiments, model integration and the live recording system. Rebuilding the acquisition software for our inherited <strong>64-channel EEG rig</strong> meant resolving sample loss, signal scaling and alignment between stimulus events and recordings. These details directly determine what the model sees. The acquisition chain now operates on the physical hardware; image decoding for a new wearer is still being validated.</p>
+            <p>The next research question is how the system should adapt. Alongside adapting the decoder, we are exploring whether choosing different visual stimuli for each person can produce a clearer response. That opens the possibility of a loop in which the model helps choose what to show next and learns from the resulting recording.</p>
+            <p>Tests using existing recordings have helped sharpen that question: personalised selection has not yet shown a clear advantage over a strong shared choice. We are using that comparison to guide the next experiments, while prioritising reliable recordings and adaptation before a live closed loop.</p>
+          </div>
+          <aside class="project-aside hardware-aside">
+            <figure class="hardware-figure">
+              <img src="assets/brain-cap.webp" alt="The BRAIN project's EEG cap with electrode cables and connection boxes laid out on a laboratory table." width="1054" height="1400" loading="lazy">
+              <figcaption>The EEG cap and electrode connections used in BRAIN.</figcaption>
+            </figure>
+            <figure class="hardware-figure amplifier-figure">
+              <img src="assets/brain-amplifiers.webp" alt="Four stacked g.USBamp amplifiers and their connected leads in the BRAIN acquisition rig." width="1054" height="1400" loading="lazy">
+              <figcaption>The amplifier stack in the 64-channel acquisition system.</figcaption>
+            </figure>
+          </aside>
+        </div>
+      </article>
+
+      <article class="project project-simulation" id="world" aria-labelledby="world-title">
+        <header class="project-heading">
+          <span class="entry-number" aria-hidden="true">03</span>
+          <p class="project-field">Physical simulation</p>
+          <h2 id="world-title">WORLD</h2>
+          <p class="project-subtitle">Measuring physical motion in surgical world models</p>
+          <p class="role"><span>Tissue-motion evaluation · EPFL AI Team</span><span class="date">2026–present</span></p>
+        </header>
+        <div class="project-layout">
+          <div class="prose">
+          <p>A surgical world model predicts video from an initial image and a sequence of robot actions. To help train or test a robot, the generated tissue must respond meaningfully to those actions. A convincing frame alone cannot tell us whether the interaction makes sense.</p>
+          <p>In WORLD, we study NVIDIA’s Cosmos-H-Surgical-Simulator by comparing generated and recorded surgery under the same robot commands. I own the tissue-motion part of the evaluation. If the camera moves, every visible point can move without the tissue deforming. I’m developing measurements that separate those effects by tracking <strong>how neighbouring tissue points move relative to one another</strong>.</p>
+          <p>I chose classical measurement steps with explicit assumptions, then designed controlled changes to real clips—such as freezing or reversing motion—to test what each score responds to. The aim is to establish that a measurement captures the behaviour we care about before using it to judge a generative model. This benchmark is in development.</p>
+          </div>
+          <aside class="project-aside">
+            <figure class="concept-figure">
+              <img src="assets/world-motion-concept.svg" alt="Conceptual diagram: translating both tracked points together preserves their separation, while local stretching changes it." width="440" height="312" loading="lazy">
+              <figcaption>Conceptual example: a common image shift preserves point separation; local stretching changes it. Real footage also involves perspective and depth.</figcaption>
+            </figure>
+          </aside>
+        </div>
+      </article>
+
+      <article class="project project-systems" id="learned-indexes" aria-labelledby="indexes-title">
+        <header class="project-heading">
+          <span class="entry-number" aria-hidden="true">04</span>
+          <p class="project-field">Data systems</p>
+          <h2 id="indexes-title">Compressed learned indexes</h2>
+          <p class="project-subtitle">Changing the data representation to make search more efficient</p>
+          <p class="role"><span>Research project · EPFL DIAS Lab</span><span class="date">2026–present</span></p>
+        </header>
+        <div class="project-layout">
+          <div class="prose">
+          <p>A learned index estimates where a key lies in a sorted dataset, then searches locally for the exact position. An irregular distribution is harder to approximate. I’m studying whether changing the spacing of keys and predicted positions can make that approximation easier.</p>
+          <p>The project compares learned transformations of the keys, extra placeholder positions and compression of empty ranges, separately and together within a compressed C++ index. Each changes the problem presented to the predictor, but also changes the work the system must do to answer a query.</p>
+          <p><strong>A more accurate prediction can still make a lookup slower.</strong> Transforming a key or decoding stored data adds a cost of its own. I’m evaluating the complete lookup alongside memory use and construction cost, with comparisons against established indexes. Full-scale results are still pending.</p>
+          </div>
+          <aside class="project-aside">
+            <figure class="concept-figure">
+              <img src="assets/learned-index-concept.svg" alt="Illustrative sorted keys: the model estimates a position near e, then an exact local search finds the requested key f." width="440" height="288" loading="lazy">
+              <figcaption>Conceptual lookup: estimate a position, then search nearby sorted keys for the exact match.</figcaption>
+            </figure>
+          </aside>
+        </div>
+      </article>
+
+      <article class="project project-interaction" id="gesture" aria-labelledby="gesture-title">
+        <header class="project-heading">
+          <span class="entry-number" aria-hidden="true">05</span>
+          <p class="project-field">Human–AI interaction</p>
+          <h2 id="gesture-title">GESTURE</h2>
+          <p class="project-subtitle">Taking sign recognition from recorded data to a live interaction</p>
+          <p class="role"><span>Project Lead, Aug 2025–Feb 2026 · EPFL AI Team</span><span class="date">2025–2026</span></p>
+        </header>
+        <div class="project-body prose">
+          <p>GESTURE explores interfaces that people can use through American Sign Language. Our student team combined recognition of hand and body motion with language models, and explored responses through a signing avatar.</p>
+          <p>I led a team of nine, wrote the first version of the live webcam pipeline and built interfaces including a quiz answered by signing. Bringing the recogniser into a live setting meant keeping camera inputs consistent with the model’s training data, managing the capture window for an isolated sign, and handling the delay between a movement and a response. The interface made those modelling assumptions visible.</p>
+          <p>I presented GESTURE with a <strong>live demonstration at <a href="publications.html#amld-2026">AMLD 2026</a></strong> at EPFL, where I also joined an AI Team panel on applied AI for social impact. The demonstrated system recognised isolated signs; fluent, continuous translation remains a broader research problem. For me, the project was an early experience of leading a team while staying closely involved in the integration work needed to make its models usable.</p>
+        </div>
+      </article>
+
+      <article class="project project-astro" id="dark-matter" aria-labelledby="dark-matter-title">
+        <header class="project-heading">
+          <span class="entry-number" aria-hidden="true">06</span>
+          <p class="project-field">Astrophysics</p>
+          <h2 id="dark-matter-title">Generative models for dark-matter maps</h2>
+          <p class="project-subtitle">Learning a distribution of physical structures from simulations</p>
+          <p class="role"><span>Team project · EPFL Machine Learning for Science</span><span class="date">Autumn 2025</span></p>
+        </header>
+        <div class="project-body prose">
+          <p>With two teammates, I explored generating galaxy-cluster mass maps from a cluster’s mass and the strength of dark-matter self-interactions. These two parameters do not determine one unique map. They describe a family of possible structures, which a generative model has to learn from simulations.</p>
+          <p>Using <strong>14,400 simulated maps</strong>, we adapted an astronomy foundation model to represent their physical properties, then trained a generator to produce maps from that representation. We examined both their total signal and how structure was distributed across spatial scales.</p>
+          <p>The outputs contained recognisable structure, but still differed from the simulations in total signal and fine detail. This was a feasibility study. It made the scientific meaning of a generated image central to my thinking: what matters is whether the model preserves the relationships a scientist would use the image to study.</p>
+        </div>
+      </article>
+
+      <section class="other-work" id="other-work" aria-labelledby="other-title">
+        <h2 id="other-title">Other work</h2>
+        <article class="short-project" id="molecular-energies">
+          <h3>Molecular energy prediction</h3>
+          <p class="role">Team project · EPFL AI for Chemistry · Spring 2026</p>
+          <p>We studied how information about electrons and molecular geometry can complement one another when predicting energy. I worked on the shared experimental framework and comparisons, then built and deployed an interface that displays a molecule’s predicted energy and orbitals. The benefit of geometric information depended on the dataset and model, making the comparisons as important as the combined architecture.</p>
+        </article>
+        <article class="short-project" id="legal-qa">
+          <h3>Evidence-grounded legal question answering</h3>
+          <p class="role">Team project · EPFL Modern NLP · Spring 2026</p>
+          <p>In a team project on French and US legal questions, I built translation and answer-verification components. The verifier checks whether individual claims are supported by retrieved text, connecting an answer back to its evidence. Testing across languages and types of legal material showed why a verifier’s reliability must be measured in the setting where it will be used.</p>
+        </article>
+        <article class="short-project" id="bsc-thesis">
+          <h3>Learning from sparse clinical data</h3>
+          <p class="role">BSc thesis · EPFL · Spring 2025</p>
+          <p>My bachelor’s thesis explored early cancer warning signs from sparse clinical data using a gradient-boosted tree ensemble.</p>
+        </article>
+      </section>
+
+    </main>
+    <footer class="site-footer">
+      <span>Louis James Vasseur</span>
+      <div><a href="mailto:louis.vasseur@epfl.ch">Email</a><a href="https://www.linkedin.com/in/louis-james-vasseur-9b9a8928a/">LinkedIn</a><a href="LouisJamesVasseurCV.pdf" download>Download CV</a></div>
+    </footer>
+  </div>
+</body>
+</html>
